@@ -6,7 +6,8 @@ This page covers both [ArkOS][arkos] and [dArkOS][darkos], which share the same 
 
 - **ROMs on SD2**: after running `Options > Advanced > Switch to SD2 for Roms`, Grout detects the
   `/roms2` mount in `/etc/fstab` and uses `/roms2` instead of `/roms`; no change to `Grout.sh` is
-  needed. Setting `BASE_PATH` in `Grout.sh` still overrides the detected path.
+  needed. Install Grout in `/roms2/ports/` so it sits next to the `gamelist.xml` entry Grout writes
+  there. Setting `BASE_PATH` in `Grout.sh` still overrides the detected path.
 
 ## Platform Mappings
 
