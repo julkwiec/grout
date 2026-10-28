@@ -31,6 +31,8 @@ const (
 // picklesTag marks a core assigned to Pickles rather than RetroArch.
 const picklesTag = "mu-"
 
+const picklesSaveRoot = "../pickles/sram"
+
 // PicklesSaveFolders returns the Pickles save folders a rom folder's saves
 // could be in, relative to the save root, and whether Pickles is where they
 // belong. It returns nothing on a muOS without Pickles.
@@ -73,7 +75,7 @@ func picklesSaveFolders(root, romFolder string) ([]string, bool) {
 		if name == "" {
 			return
 		}
-		folder := path.Join("../pickles/sram", name, filepath.ToSlash(romFolder))
+		folder := path.Join(picklesSaveRoot, name, filepath.ToSlash(romFolder))
 		for _, existing := range folders {
 			if existing == folder {
 				return
