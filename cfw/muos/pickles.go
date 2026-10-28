@@ -12,8 +12,9 @@ import (
 )
 
 // Pickles is muOS's own libretro frontend, the default since Andromeda. It
-// keeps saves apart from RetroArch's, under save/pickles/sram/<core>/<rom
-// folder>, where <core> is the core file less "_libretro.so".
+// keeps saves apart from RetroArch's, under <storage>/pickles/sram/<core>/<rom
+// folder>, beside the save root rather than in it, where <core> is the core
+// file less "_libretro.so". Folders are relative to the save root, hence "../".
 //
 // Which runtime a rom folder uses is muOS's to say. These are the files it
 // says it in, read the way its frontend reads them.
@@ -72,7 +73,7 @@ func picklesSaveFolders(root, romFolder string) ([]string, bool) {
 		if name == "" {
 			return
 		}
-		folder := path.Join("pickles/sram", name, filepath.ToSlash(romFolder))
+		folder := path.Join("../pickles/sram", name, filepath.ToSlash(romFolder))
 		for _, existing := range folders {
 			if existing == folder {
 				return
